@@ -205,15 +205,15 @@ def raw_data(df):
 
     #while yes print next 5 lines of raw data and get user input if they want to see 5 more lines
     while True:
-        view_raw = input('\nDo you want to see the first 5 lines of raw data? Yes or No\n').lower()
+        view_data = input('\nDo you want to see the first 5 lines of raw data? Yes or No\n').lower()
         i = 0
-        if view_raw == 'yes':
-            while view_raw == 'yes':
+        if view_data == 'yes':
+            while view_data == 'yes':
                 print(df.iloc[i: i + 5])
                 i += 5
-                view_raw = input('\nDo you want to view 5 more lines of raw data? Yes or No\n').lower()
+                view_data = input('\nDo you want to view 5 more lines of raw data? Yes or No\n').lower()
             break
-        elif view_raw == 'no':
+        elif view_data == 'no':
             break
         else:
             print('Not a valid input.  Please enter Yes or No')

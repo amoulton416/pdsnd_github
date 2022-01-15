@@ -1,6 +1,7 @@
 import time
 import pandas as pd
 import numpy as np
+from tabulate import tabulate
 
 CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
@@ -205,18 +206,15 @@ def raw_data(df):
 
     # while yes print next 5 lines of raw data and get user input if they want to see 5 more lines
     while True:
-        view_raw = input('\nDo you want to see the first 5 lines of raw data? Yes or No\n').lower()
-        i = 0
-        if view_raw == 'yes':
-            while view_raw == 'yes':
-                print(df.iloc[i: i + 5])
-                i += 5
-                view_raw = input('\nDo you want to view 5 more lines of raw data? Yes or No\n').lower()
+        view_data = input('\nDo you want to see the first 5 lines of raw data? Yes or No\n').lower()
+        i=0
+        if view_data.lower() != 'yes':
             break
-        elif view_raw == 'no':
-            break
-        else:
-            print('Not a valid input.  Please enter Yes or No')
+        while view_data == 'yes':
+            print(tabulate(df.iloc[np.arange(0+i,5+i)], headers ="keys"))
+            i+=5
+            view_data = input('\nDo you want to view 5 more lines of raw data? Yes or No\n').lower()
+        break
 
     print('-'*40)
 
